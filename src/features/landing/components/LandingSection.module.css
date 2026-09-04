@@ -1,0 +1,11 @@
+.section {
+  padding-block: clamp(var(--space-16), 9vw, calc(var(--space-20) + var(--space-10)));
+  /* Offset in-page anchor jumps so section headers clear the sticky header. */
+  scroll-margin-block-start: var(--space-20);
+}
+.inner {
+  inline-size: 100%;
+  max-inline-size: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-4), 5vw, var(--space-16));
+}

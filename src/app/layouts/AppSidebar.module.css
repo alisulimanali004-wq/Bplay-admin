@@ -1,0 +1,119 @@
+.sidebar {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: var(--sidebar-width);
+  z-index: var(--z-sidebar);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-inline-end: 1px solid var(--color-border);
+  transition: transform var(--transition-normal);
+  overflow-y: auto;
+}
+
+/* Persistent (visible) at lg+; an off-canvas drawer below it — for BOTH LTR and RTL. */
+@media (max-width: 1023.98px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  [dir='rtl'] .sidebar {
+    transform: translateX(100%);
+  }
+  .sidebar.open,
+  [dir='rtl'] .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2) var(--space-4);
+}
+.brandName {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--gradient-glass);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  margin-block-end: var(--space-4);
+  transition: border-color var(--transition-fast);
+}
+.profile:hover {
+  border-color: var(--color-border-strong);
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+.userName {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.userEmail {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+  border-inline-start: 3px solid transparent;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+.link:hover {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+}
+.linkActive {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border-inline-start-color: var(--color-primary);
+}
+.linkActive .linkIcon {
+  color: var(--color-primary);
+}
+.linkIcon {
+  font-size: 20px;
+  display: inline-flex;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.spacer {
+  flex: 1;
+}

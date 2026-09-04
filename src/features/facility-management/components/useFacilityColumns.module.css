@@ -1,0 +1,80 @@
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.thumb {
+  flex-shrink: 0;
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.thumbFallback {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-3);
+  color: var(--color-text-subtle);
+  font-size: var(--text-base);
+}
+
+.name {
+  overflow: hidden;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kindGlyph {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+}
+
+.ownerLink {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-primary-accent);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ownerLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.ownerLink:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.sports {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  white-space: nowrap;
+}
+
+.more {
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+}
+
+.date {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}

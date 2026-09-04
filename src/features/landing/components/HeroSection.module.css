@@ -1,0 +1,102 @@
+.hero {
+  position: relative;
+  padding-block-start: clamp(var(--space-10), 8vw, var(--space-20));
+  padding-block-end: clamp(var(--space-12), 9vw, calc(var(--space-20) + var(--space-8)));
+}
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(var(--space-8), 6vw, var(--space-16));
+  max-inline-size: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-4), 5vw, var(--space-16));
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+.badgeDot {
+  inline-size: var(--space-2);
+  block-size: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.title {
+  margin: 0;
+  font-size: clamp(var(--text-4xl), 7vw, calc(var(--text-5xl) + var(--space-4)));
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+/* Latin display tracking hurts Arabic letter-joining — reset it in RTL. */
+:global([dir='rtl']) .title {
+  letter-spacing: normal;
+}
+.titleLine {
+  display: block;
+}
+.titleAccent {
+  display: block;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.subtitle {
+  margin: 0;
+  max-inline-size: 46ch;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-2);
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+  .content {
+    align-items: center;
+    text-align: center;
+  }
+  .subtitle {
+    margin-inline: auto;
+  }
+  .ctas {
+    justify-content: center;
+  }
+}

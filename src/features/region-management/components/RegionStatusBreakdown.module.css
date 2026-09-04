@@ -1,0 +1,104 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.total {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.bar {
+  display: flex;
+  gap: 3px;
+  block-size: var(--space-4);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+.seg {
+  position: relative;
+  block-size: 100%;
+  min-inline-size: var(--space-2);
+  border-radius: var(--radius-full);
+  /* The frosted-glass wash token layered over the status color reads as a
+     glossy pill — on-style with the app and tokens-only. */
+  background-image: var(--gradient-glass);
+  transition: filter var(--transition-fast);
+}
+.seg:hover {
+  filter: brightness(1.12);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+.dot {
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+.legendLabel {
+  color: var(--color-text-muted);
+}
+.legendCount {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+.legendPct {
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Status colors (tokens) — shared by the bar segments and the legend dots.
+   `background-color` (not the `background` shorthand) so the segment sheen
+   (`background-image`) layers on top instead of being reset. */
+.cActive {
+  background-color: var(--status-success-text);
+}
+.cPending {
+  background-color: var(--status-warning-text);
+}
+.cSuspended {
+  background-color: var(--color-secondary);
+}
+.cRejected {
+  background-color: var(--status-danger-text);
+}
+.cOwnerSuspended {
+  background-color: var(--status-neutral-text);
+}

@@ -1,0 +1,51 @@
+/* Mirrors ownerForm.module.css — the two create flows are the same shape and
+   should stay visually identical. */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+@media (max-width: 560px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hint {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Temp-password reveal (shown once after creating a player). */
+.reveal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.revealHead {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+.revealRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.revealField {
+  flex: 1;
+  min-inline-size: 0;
+}
+.revealWarn {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}

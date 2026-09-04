@@ -1,0 +1,79 @@
+/* The chat is the one page that must NOT grow with its content: the rail and the
+   thread each own an internal scroll, so the shell needs a bounded height.
+   It is derived from the viewport minus the fixed topbar and the layout's own
+   content padding — the two values DashboardLayout actually applies. */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  inline-size: 100%;
+  max-inline-size: 1600px;
+  margin-inline: auto;
+  block-size: calc(100vh - var(--header-height) - 2 * var(--space-4));
+  /* dvh accounts for a phone's collapsing browser chrome; vh above is the
+     fallback for engines that do not support it. */
+  block-size: calc(100dvh - var(--header-height) - 2 * var(--space-4));
+  min-block-size: 480px;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  flex: 1;
+  min-block-size: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  /* Clips the rail's and the thread's scrollers to the rounded corners. */
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0;
+  min-inline-size: 0;
+  background-color: var(--color-bg);
+  background-image: var(--gradient-stage);
+  background-repeat: no-repeat;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  min-block-size: 0;
+  padding: var(--space-6);
+}
+
+/* ---- narrow: exactly one pane at a time, chosen by the URL ---- */
+
+@media (max-width: 1023px) {
+  .listOpen .pane {
+    display: none;
+  }
+
+  .threadOpen > :first-child {
+    display: none;
+  }
+}
+
+/* ---- wide: rail beside thread ---- */
+
+@media (min-width: 1024px) {
+  .page {
+    block-size: calc(100vh - var(--header-height) - 2 * var(--space-6));
+    block-size: calc(100dvh - var(--header-height) - 2 * var(--space-6));
+  }
+
+  .shell {
+    grid-template-columns: minmax(300px, 340px) 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  .shell {
+    grid-template-columns: minmax(340px, 380px) 1fr;
+  }
+}

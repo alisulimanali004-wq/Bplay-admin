@@ -1,0 +1,112 @@
+.wrap {
+  inline-size: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+.table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.th {
+  text-align: start;
+  padding: var(--space-4);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--color-surface-2);
+  border-block-end: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+.th:first-child { border-start-start-radius: var(--radius-xl); }
+.th:last-child { border-start-end-radius: var(--radius-xl); }
+
+.sortBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  font-weight: var(--weight-semibold);
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+.sortBtn:hover { color: var(--color-text); }
+.sortBtn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+.sortActive { color: var(--color-primary); }
+.sortIcon {
+  display: inline-flex;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.td {
+  padding: var(--space-4);
+  color: var(--color-text);
+  border-block-end: 1px solid var(--color-border-light);
+  vertical-align: middle;
+  font-variant-numeric: tabular-nums;
+  transition: background var(--transition-fast);
+}
+.row:last-child .td {
+  border-block-end: none;
+}
+.row:hover .td {
+  background: var(--color-surface-2);
+}
+.clickable {
+  cursor: pointer;
+}
+.clickable:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+}
+.center {
+  text-align: center;
+}
+.end {
+  text-align: end;
+}
+.actions {
+  white-space: nowrap;
+}
+.state {
+  padding: 0;
+}
+
+.skeleton {
+  display: block;
+  block-size: 14px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-2) 25%,
+    var(--color-surface-3) 37%,
+    var(--color-surface-2) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}

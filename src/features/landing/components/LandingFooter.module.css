@@ -1,0 +1,90 @@
+.footer {
+  position: relative;
+  z-index: 1;
+  border-block-start: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+.inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr auto;
+  align-items: start;
+  gap: var(--space-8);
+  max-inline-size: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-4), 5vw, var(--space-16));
+  padding-block: clamp(var(--space-10), 6vw, var(--space-16));
+}
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-inline-size: 40ch;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.wordmark {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+.tagline {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+.navHeading {
+  margin-block-end: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+:global([dir='rtl']) .navHeading {
+  letter-spacing: normal;
+}
+.navLink {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+.navLink:hover {
+  color: var(--color-primary);
+}
+.langCol {
+  display: flex;
+  justify-content: flex-end;
+}
+.bottom {
+  border-block-start: 1px solid var(--color-divider);
+}
+.rights {
+  display: block;
+  max-inline-size: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-4), 5vw, var(--space-16));
+  padding-block: var(--space-5);
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .langCol {
+    justify-content: flex-start;
+  }
+}

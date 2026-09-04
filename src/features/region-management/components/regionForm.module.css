@@ -1,0 +1,202 @@
+/* Region form (map + name + radius) and the assign multi-select. Tokens +
+   logical properties only. */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ---- Radius row: a number input beside a range slider, both bound to km ---- */
+.radiusRow {
+  display: grid;
+  grid-template-columns: minmax(96px, 120px) 1fr;
+  align-items: center;
+  gap: var(--space-4);
+}
+@media (max-width: 520px) {
+  .radiusRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.slider {
+  inline-size: 100%;
+  block-size: var(--space-5);
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+.slider:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-focus);
+  border-radius: var(--radius-full);
+}
+
+/* ---- Assign multi-select ---- */
+.assignBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.assignHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.assignCount {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+/* Filter toggles under the search box */
+.filterToggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+.toggle:hover {
+  color: var(--color-text);
+}
+.clearFilters {
+  align-self: flex-start;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--color-primary-accent);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+.clearFilters:hover {
+  color: var(--color-primary);
+}
+.clearFilters:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-focus);
+  border-radius: var(--radius-sm);
+}
+
+/* Selected chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border-strong);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+.chipRemove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--space-4);
+  block-size: var(--space-4);
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+.chipRemove:hover {
+  color: var(--color-text);
+}
+.chipRemove:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-focus);
+}
+
+/* Checkable admin list */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-block-size: 380px;
+  overflow-y: auto;
+  padding: var(--space-1);
+  margin: 0;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.row:hover {
+  background: var(--color-glass);
+}
+.row:focus-within {
+  box-shadow: 0 0 0 2px var(--color-focus);
+}
+.checkbox {
+  inline-size: 18px;
+  block-size: 18px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+.rowName {
+  flex: 1;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty {
+  padding-block: var(--space-4);
+  text-align: center;
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-6);
+}
+
+/* ---- Out-of-bounds warning: the circle escapes its parent city ------------ */
+.warn {
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-warning-soft, var(--color-surface-2));
+  color: var(--color-warning-strong, var(--color-text));
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}

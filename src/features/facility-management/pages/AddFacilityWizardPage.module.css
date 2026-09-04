@@ -1,0 +1,63 @@
+.stepperWrap {
+  inline-size: min(100%, 760px);
+  margin-inline: auto;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-16);
+}
+
+/* Region-seeded banner: shown when the wizard is opened from a region's detail
+   page. The location step is pre-centred on the region so the exact point is set
+   inside its circle. */
+.regionSeed {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  inline-size: min(100%, 760px);
+  margin-inline: auto;
+  margin-block-end: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--status-success-bg);
+  border: 1px solid var(--status-success-border);
+  border-radius: var(--radius-xl);
+}
+.regionSeedIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+.regionSeedText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+.regionSeedTitle {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+.regionSeedHint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* One centered glass panel hosting the active step form. */
+.panel {
+  inline-size: min(100%, 760px);
+  margin-inline: auto;
+  padding: var(--space-6);
+  background: var(--gradient-glass);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 640px) {
+  .panel {
+    padding: var(--space-4);
+  }
+}

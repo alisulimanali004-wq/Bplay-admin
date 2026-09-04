@@ -1,0 +1,121 @@
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-inline-size: 0;
+  cursor: pointer;
+  text-align: start;
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+}
+
+.description {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  line-height: var(--leading-normal);
+}
+
+/* The real control: invisible but present, so a11y + keyboard come for free. */
+.input {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inline-size: 44px;
+  block-size: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.track {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  inline-size: 44px;
+  block-size: 24px;
+  padding: 2px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.thumb {
+  inline-size: 18px;
+  block-size: 18px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-muted);
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.input:checked ~ .track {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.input:checked ~ .track .thumb {
+  background: var(--color-on-primary);
+  /* Logical travel: mirrored under RTL by the direction-aware transform below. */
+  transform: translateX(20px);
+}
+
+[dir='rtl'] .input:checked ~ .track .thumb {
+  transform: translateX(-20px);
+}
+
+.input:focus-visible ~ .track {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.input:hover:not(:disabled) ~ .track {
+  border-color: var(--color-primary-accent);
+}
+
+.disabled .text {
+  cursor: not-allowed;
+}
+
+.disabled .label,
+.disabled .description {
+  color: var(--color-text-disabled);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .thumb {
+    transition: none;
+  }
+}

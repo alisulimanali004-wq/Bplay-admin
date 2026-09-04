@@ -1,0 +1,119 @@
+.wrap {
+  position: relative;
+  display: block;
+  inline-size: 100%;
+}
+
+.trigger {
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  cursor: pointer;
+  text-align: start;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.trigger:hover:not(:disabled) {
+  border-color: var(--color-primary-accent);
+}
+.trigger:focus-visible {
+  outline: none;
+  border-color: var(--color-primary-accent);
+  box-shadow: 0 0 0 3px var(--color-focus);
+}
+.trigger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.placeholder {
+  color: var(--color-text-subtle);
+}
+.chevron {
+  font-size: 18px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Portaled menu — positioned to the trigger via inline top/left/width (runtime geometry). */
+.list {
+  position: fixed;
+  z-index: var(--z-popover);
+  margin: 0;
+  padding: var(--space-1);
+  list-style: none;
+  background: var(--color-dialog);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-block-size: 260px;
+  overflow-y: auto;
+  animation: dropIn var(--transition-fast);
+}
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+.optionActive {
+  background: var(--color-surface-2);
+}
+.optionLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Indented so a neighbourhood reads as belonging to the city above it. The
+   parent stays selectable in place, so no separate heading row is needed.
+   padding-inline-start (not left) keeps the nesting on the correct side in RTL. */
+.optionNested {
+  padding-inline-start: var(--space-6);
+}
+.check {
+  font-size: 16px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .list {
+    animation: none;
+  }
+}

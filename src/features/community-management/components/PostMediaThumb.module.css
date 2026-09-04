@@ -1,0 +1,58 @@
+.thumb {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+.sm {
+  inline-size: 48px;
+  block-size: 48px;
+}
+.lg {
+  inline-size: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-lg);
+}
+
+.img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.tile {
+  color: var(--color-text-subtle);
+  font-size: 1.4em;
+}
+
+.play {
+  position: absolute;
+  /* Center both axes without a physical transform, so it stays centered in RTL. */
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-overlay);
+  color: var(--color-text);
+  font-size: 0.8em;
+}
+
+.count {
+  position: absolute;
+  inset-block-end: var(--space-1);
+  inset-inline-end: var(--space-1);
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-overlay);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+}

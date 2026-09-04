@@ -1,0 +1,89 @@
+.bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.search {
+  flex: 1 1 260px;
+  min-inline-size: 200px;
+}
+
+.collapse {
+  overflow: hidden;
+}
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--gradient-glass);
+}
+
+.filter {
+  flex: 1 1 170px;
+  min-inline-size: 150px;
+  max-inline-size: 240px;
+}
+
+.filterWide {
+  flex: 1 1 260px;
+  min-inline-size: 220px;
+}
+
+@media (max-width: 640px) {
+  .filter,
+  .filterWide {
+    flex-basis: 100%;
+    max-inline-size: none;
+  }
+}
+
+/* Status quick-chips row (always visible under the search row). */
+.statusChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.statusChip {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-full);
+  background: var(--color-glass);
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.statusChip:hover {
+  border-color: var(--color-glass-border-strong);
+  color: var(--color-text);
+}
+
+.statusChip:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.statusChipActive {
+  border-color: var(--color-primary);
+  background: var(--status-success-bg);
+  color: var(--color-primary);
+}

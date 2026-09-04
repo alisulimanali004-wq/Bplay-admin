@@ -1,0 +1,65 @@
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+.avatarWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+.avatarBtn {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+.avatarBtn:hover {
+  transform: scale(1.03);
+}
+.camera {
+  position: absolute;
+  inset-block-end: calc(var(--space-1) * -1);
+  inset-inline-end: calc(var(--space-1) * -1);
+  box-shadow: var(--shadow-md);
+}
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  flex: 1;
+}
+.name {
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+.email {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  word-break: break-word;
+}
+.badges {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-inline-start: auto;
+}
+
+@media (max-width: 640px) {
+  .actions {
+    margin-inline-start: 0;
+    inline-size: 100%;
+  }
+}

@@ -1,0 +1,40 @@
+.clubLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--color-text);
+  cursor: pointer;
+  min-inline-size: 0;
+  text-align: start;
+}
+
+.clubName {
+  font-weight: var(--weight-medium);
+  color: var(--color-primary-accent);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clubLink:hover .clubName {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.period {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.price {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+}

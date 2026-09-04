@@ -1,0 +1,77 @@
+.page {
+  position: relative;
+  min-block-size: 100dvh;
+  overflow-x: clip;
+  background-color: var(--color-bg);
+  background-image: var(--gradient-stage);
+  background-repeat: no-repeat;
+}
+
+/* Ambient drifting glow orbs behind everything (frozen under reduced-motion). */
+.ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.orbTop,
+.orbMid,
+.orbBottom {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  filter: blur(60px);
+}
+.orbTop {
+  inset-block-start: -10%;
+  inset-inline-end: -5%;
+  inline-size: 40vw;
+  max-inline-size: 520px;
+  background: radial-gradient(circle, var(--color-glow-primary), transparent 70%);
+  animation: drift-a 22s ease-in-out infinite;
+}
+.orbMid {
+  inset-block-start: 42%;
+  inset-inline-start: -10%;
+  inline-size: 36vw;
+  max-inline-size: 480px;
+  background: radial-gradient(circle, var(--color-glow-forest), transparent 70%);
+  animation: drift-b 26s ease-in-out infinite;
+}
+.orbBottom {
+  inset-block-end: -6%;
+  inset-inline-start: 28%;
+  inline-size: 34vw;
+  max-inline-size: 460px;
+  background: radial-gradient(circle, var(--color-glow-primary), transparent 72%);
+  animation: drift-a 30s ease-in-out infinite reverse;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  scroll-margin-block-start: var(--space-20);
+}
+.main:focus {
+  outline: none;
+}
+
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 24px, 0);
+  }
+}
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -30px, 0);
+  }
+}

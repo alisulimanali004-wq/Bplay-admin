@@ -1,0 +1,124 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-6);
+  border-block-end: 1px solid var(--color-border);
+  background: var(--color-surface);
+  /* Sits above the thread's own scroll shadow without needing a z-index war. */
+  position: relative;
+  z-index: 1;
+}
+
+/* The back affordance only exists on the narrow, single-pane layout. */
+.back {
+  display: none;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-inline-size: 0;
+  flex: 1;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  min-inline-size: 0;
+}
+
+.name {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  max-inline-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a.name:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+a.name:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.namePlain {
+  cursor: default;
+}
+
+.nameIcon {
+  flex-shrink: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  min-inline-size: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.facility {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.facility:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.facility:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.team,
+.email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-text-subtle);
+}
+
+.typing {
+  font-weight: var(--weight-medium);
+  color: var(--color-primary);
+}
+
+@media (max-width: 1023px) {
+  .back {
+    display: inline-flex;
+  }
+
+  .header {
+    padding-inline: var(--space-4);
+  }
+
+  /* The email is the first thing to go when the header has to fit a phone. */
+  .email {
+    display: none;
+  }
+}

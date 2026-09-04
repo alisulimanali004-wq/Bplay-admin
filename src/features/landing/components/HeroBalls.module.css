@@ -1,0 +1,40 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* behind hero content — .inner sits at z-index 1 */
+  overflow: hidden;
+  pointer-events: none;
+}
+.ball {
+  position: absolute;
+  display: block;
+  line-height: 1;
+  filter: drop-shadow(0 8px 20px var(--color-glow-forest));
+}
+.football {
+  font-size: 72px;
+  inset-block-start: 6%;
+  inset-inline-end: 30%;
+}
+.basketball {
+  font-size: 62px;
+  inset-block-end: 8%;
+  inset-inline-start: 44%;
+}
+.tennis {
+  font-size: 76px;
+  inset-block-start: 28%;
+  inset-inline-end: 3%;
+}
+.volleyball {
+  font-size: 58px;
+  inset-block-end: 15%;
+  inset-inline-end: 23%;
+}
+
+/* Keep the mobile hero clean — the stacked layout has no room for floaters. */
+@media (max-width: 900px) {
+  .layer {
+    display: none;
+  }
+}

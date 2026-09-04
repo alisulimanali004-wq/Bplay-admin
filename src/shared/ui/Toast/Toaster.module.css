@@ -1,0 +1,149 @@
+.host {
+  position: fixed;
+  inset-block-end: var(--space-5);
+  inset-inline-end: var(--space-5);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  inline-size: min(420px, calc(100vw - var(--space-8)));
+  pointer-events: none;
+}
+
+.toast {
+  /* Variant-driven accents (overridden by the variant classes below). */
+  --toast-accent: var(--color-text-muted);
+  --toast-tint: var(--color-glass);
+  --toast-edge: var(--color-glass-border-strong);
+  /* Auto-dismiss length — keep in sync with TOAST_DURATION_MS in toast.ts. */
+  --toast-duration: 5000ms;
+
+  position: relative;
+  overflow: hidden;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  padding-inline-start: var(--space-5); /* room for the accent bar */
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--toast-edge);
+  /* A subtle variant wash floated over the raised glass surface. */
+  background: linear-gradient(var(--toast-tint), var(--toast-tint)), var(--color-surface-2);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+  font-family: var(--font-sans);
+  cursor: grab;
+  touch-action: pan-y; /* let vertical page scroll pass; we own horizontal for swipe */
+}
+
+.toast:active {
+  cursor: grabbing;
+}
+
+.toast:focus-within {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Variant accent recipes (mirror the Badge status pairs) ---------- */
+.success {
+  --toast-accent: var(--status-success-text);
+  --toast-tint: var(--status-success-bg);
+  --toast-edge: var(--status-success-border);
+}
+.error {
+  --toast-accent: var(--status-danger-text);
+  --toast-tint: var(--status-danger-bg);
+  --toast-edge: var(--status-danger-border);
+}
+.warning {
+  --toast-accent: var(--status-warning-text);
+  --toast-tint: var(--status-warning-bg);
+  --toast-edge: var(--status-warning-border);
+}
+.info {
+  --toast-accent: var(--status-info-text);
+  --toast-tint: var(--status-info-bg);
+  --toast-edge: var(--status-info-border);
+}
+
+/* ---------- Parts ---------- */
+.accent {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: 4px;
+  background: var(--toast-accent);
+}
+
+.iconChip {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: var(--radius-full);
+  background: var(--toast-tint);
+  border: 1px solid var(--toast-edge);
+  color: var(--toast-accent);
+  font-size: 18px; /* icons render at 1em */
+}
+
+.message {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+.close {
+  flex: 0 0 auto;
+  margin-inline-start: var(--space-1);
+}
+
+.progress {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  block-size: 3px;
+  background: var(--toast-accent);
+  opacity: 0.85;
+  transform-origin: left center;
+  animation: toastCountdown var(--toast-duration) linear forwards;
+}
+
+:global([dir='rtl']) .progress {
+  transform-origin: right center;
+}
+
+.paused .progress {
+  animation-play-state: paused;
+}
+
+@keyframes toastCountdown {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* ---------- Small screens: stretch to a full-width bar with side margins ---------- */
+@media (max-width: 480px) {
+  .host {
+    inset-inline: var(--space-4);
+    inline-size: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress {
+    display: none;
+  }
+}

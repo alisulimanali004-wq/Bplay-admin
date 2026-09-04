@@ -1,0 +1,200 @@
+.host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-block-size: 0;
+}
+
+.scroll {
+  flex: 1;
+  min-block-size: 0;
+  padding: var(--space-2) var(--space-6) var(--space-6);
+  overflow-y: auto;
+  /* Momentum scroll inside the thread must not chain to the page behind it. */
+  overscroll-behavior: contain;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* Keeps a short thread pinned to the bottom of the pane, the way a real
+     messenger behaves, instead of floating at the top of a tall empty box. */
+  min-block-size: 100%;
+  justify-content: flex-end;
+}
+
+/* ---- states ---- */
+
+.state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-block-size: 0;
+  padding: var(--space-6);
+  overflow-y: auto;
+}
+
+.skeletons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  inline-size: 100%;
+  max-inline-size: 640px;
+}
+
+.skeletonRow {
+  display: flex;
+}
+
+.skeletonOwn {
+  justify-content: flex-end;
+}
+
+.firstMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  max-inline-size: 420px;
+  text-align: center;
+}
+
+.firstIcon {
+  display: grid;
+  place-items: center;
+  inline-size: 56px;
+  block-size: 56px;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-full);
+  background: var(--color-glass);
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+}
+
+.firstTitle {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.firstHint {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+/* ---- typing indicator ---- */
+
+.typingRow {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  margin-block-start: var(--space-3);
+}
+
+.typingBubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  border-start-start-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+}
+
+.dot {
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-subtle);
+  animation: typing 1.3s ease-in-out infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+/* ---- jump to latest ---- */
+
+.jump {
+  position: absolute;
+  inset-block-end: var(--space-4);
+  inset-inline-end: var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-glass-border-strong);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.jump:hover {
+  background: var(--color-surface-3);
+  transform: translateY(-1px);
+}
+
+.jump:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .scroll {
+    padding-inline: var(--space-4);
+  }
+
+  .jump {
+    inset-inline-end: var(--space-4);
+  }
+}
+
+/* Users who ask for less motion get the same information without the movement. */
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+    opacity: 0.6;
+  }
+
+  .jump {
+    transition: none;
+  }
+
+  .jump:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,52 @@
+.strip {
+  position: relative;
+  block-size: 150px;
+  background: var(--color-surface);
+}
+
+.scroller {
+  display: flex;
+  gap: var(--space-1);
+  block-size: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.photo {
+  flex: 0 0 34%;
+  block-size: 100%;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
+.hero {
+  flex: 0 0 62%;
+}
+
+/* A lone photo fills the whole band — no awkward empty peek space. */
+.photo:only-child {
+  flex: 1 1 100%;
+}
+
+.fallback {
+  display: grid;
+  place-items: center;
+  block-size: 100%;
+  background: var(--color-surface-3);
+  color: var(--color-text-subtle);
+  font-size: var(--text-3xl);
+}
+
+.kindBadge {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  display: inline-flex;
+  border-radius: var(--radius-full);
+  background: var(--color-overlay);
+}

@@ -1,0 +1,102 @@
+.row {
+  display: flex;
+  justify-content: center;
+  margin-block-start: var(--space-4);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-inline-size: 90%;
+  padding: 6px var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-glass);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.icon {
+  flex-shrink: 0;
+  font-size: var(--text-sm);
+}
+
+.label {
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+
+.detail {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-text-subtle);
+}
+
+/* Separates the detail from the label without an extra element. */
+.detail::before {
+  content: '· ';
+}
+
+.time {
+  flex-shrink: 0;
+  color: var(--color-text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Per-event tint. The glyph already distinguishes them; the colour is a second,
+   redundant channel — never the only one. */
+.approved {
+  border-color: var(--status-success-border);
+  background: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.rejected {
+  border-color: var(--status-danger-border);
+  background: var(--status-danger-bg);
+  color: var(--status-danger-text);
+}
+
+.document_requested {
+  border-color: var(--status-warning-border);
+  background: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
+
+.request_submitted,
+.review_started {
+  border-color: var(--status-info-border);
+  background: var(--status-info-bg);
+  color: var(--status-info-text);
+}
+
+/* ---- day separator ---- */
+
+.dayRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block-start: var(--space-6);
+}
+
+.dayRow::before,
+.dayRow::after {
+  content: '';
+  flex: 1;
+  block-size: 1px;
+  background: var(--color-divider);
+}
+
+.day {
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}

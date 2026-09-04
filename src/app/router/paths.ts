@@ -1,0 +1,25 @@
+export const PATHS = {
+  home: '/',
+  login: '/login',
+  forgotPassword: '/forgot-password',
+  resetPassword: '/reset-password',
+  app: '/app',
+  dashboard: '/app/dashboard',
+  profile: '/app/profile',
+  adminManagement: '/app/admin-management',
+  regionManagement: '/app/region-management',
+  ownerManagement: '/app/owner-management',
+  playerManagement: '/app/player-management',
+  facilityManagement: '/app/facility-management',
+  facilityManagementNew: '/app/facility-management/new',
+  communityManagement: '/app/community-management',
+  bookingManagement: '/app/booking-management',
+  clubSubscriptions: '/app/club-subscriptions',
+  plans: '/app/plans',
+  feedback: '/app/feedback',
+  notifications: '/app/notifications',
+  chat: '/app/chat',
+  audit: '/app/audit',
+} as const;
+
+export type AppPath = (typeof PATHS)[keyof typeof PATHS];

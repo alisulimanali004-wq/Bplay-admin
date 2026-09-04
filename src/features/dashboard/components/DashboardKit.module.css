@@ -1,0 +1,93 @@
+.eyebrow {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block-end: var(--space-5);
+}
+.sectionHeadMain {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+.sectionBar {
+  inline-size: 3px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(var(--color-primary), var(--color-primary-accent));
+  box-shadow: var(--shadow-glow-sm);
+  flex-shrink: 0;
+}
+.sectionTitle {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  text-align: start;
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-block-end: var(--space-4);
+}
+.panelHeadTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+.panelHeadIcon {
+  display: inline-flex;
+  font-size: var(--text-base);
+  color: var(--color-primary);
+}
+
+.delta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-variant-numeric: tabular-nums;
+}
+.deltaUp { color: var(--color-success); }
+.deltaDown { color: var(--color-danger); }
+.deltaIcon { font-size: 0.9em; }
+.deltaPct {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+}
+.deltaBaseline {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-subtle);
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.viewAll:hover {
+  color: var(--color-primary);
+}
+.viewAllIcon {
+  font-size: var(--text-sm);
+}

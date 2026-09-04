@@ -1,0 +1,168 @@
+/* ============================================================================
+ * src/styles/tokens.css — THE single design-token source of truth.
+ * Ported 1:1 from the Bplay mobile app's "Pitch Forest" palette
+ * (Bplay-mobile/lib/core/styles/palette.dart). Dark forest theme is the only
+ * theme. This is the ONLY file allowed to hold literal color/size values —
+ * everything else references var(--token). See /playadmin skill 02-design-system.
+ * ========================================================================== */
+:root {
+  /* ---------- Brand / primary (luminous mint accent; dark ink sits ON it) ---------- */
+  --color-primary: #cdecc6;           /* sageMist — the app's primary accent */
+  --color-primary-hover: #b9e3b0;     /* deeper mint for hover / pressed */
+  --color-primary-accent: #8ba888;    /* sage — links & secondary accents */
+  --color-primary-deep: #344c3d;      /* pitchForest — deep brand green */
+  --color-on-primary: #0c1f17;        /* pitchDeep — ink/text on mint CTAs (never white) */
+  --gradient-brand: linear-gradient(135deg, #ecfbe8, #cdecc6, #8ba888); /* cream -> mint -> sage */
+
+  --color-secondary: #d4a373;         /* warm amber — the single earthy accent */
+  --color-secondary-strong: #b07f50;
+
+  /* ---------- Feedback (semantic; text + tint bg) ---------- */
+  --color-success: #8fcf99;
+  --color-success-bg: #16301e;
+  --color-danger: #f2796f;
+  --color-danger-hover: #d4183d;      /* hard-destructive for irreversible confirms */
+  --color-danger-bg: #3a1f1c;
+  --color-warning: #d4a373;
+  --color-warning-bg: #33271c;
+  --color-info: #7fb4e0;
+  --color-info-bg: #1b2a36;
+  --color-caution: #fb923c;           /* suspend / deactivate action fill (orange) */
+  --color-caution-hover: #ea7a28;
+
+  /* ---------- Surfaces (Pitch-Forest greens) ---------- */
+  --color-bg: #0a1b13;                /* pitchDeepest — the stage the app floats on */
+  --color-surface: #122a20;           /* pitch — default card / panel */
+  --color-surface-2: #1f3d31;         /* pitchMid — raised glass surface */
+  --color-surface-3: #2f5544;         /* pitchSoft — lightest green surface */
+  --color-dialog: #14271d;            /* dialog / bottom-sheet background */
+  --color-overlay: rgba(6, 16, 11, 0.72); /* modal scrim over the forest stage */
+
+  /* ---------- Frosted glass (translucent white wash over the dark stage) ---------- */
+  --color-glass: rgba(255, 255, 255, 0.06);
+  --color-glass-strong: rgba(255, 255, 255, 0.09);
+  --color-glass-border: rgba(255, 255, 255, 0.10);
+  --color-glass-border-strong: rgba(255, 255, 255, 0.16);
+  --gradient-glass: linear-gradient(135deg, var(--color-glass-strong), var(--color-glass));
+  /* Soft forest glow at the top of a screen — adds depth over the flat --color-bg. */
+  --gradient-stage: radial-gradient(1100px 620px at 50% -12%, rgba(47, 85, 68, 0.45), transparent 72%);
+
+  /* ---------- Borders ---------- */
+  --color-border: #24382c;
+  --color-border-light: #1c2c22;
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --color-divider: #1e3228;
+
+  /* ---------- Text (cream on forest) ---------- */
+  --color-text: #ecfbe8;              /* cream — primary foreground */
+  --color-text-muted: #a9c2a4;        /* secondary text */
+  --color-text-subtle: #7e967c;       /* hint / placeholder / de-emphasized */
+  --color-text-disabled: #5a6f5c;
+
+  /* ---------- Focus (luminous mint ring) ---------- */
+  --color-focus: rgba(205, 236, 198, 0.5); /* sageMist @50% */
+
+  /* ---------- Semantic status pairs (text / bg @12% / border @35%) — Badge & rows ---------- */
+  --status-success-text: #cdecc6;     /* active / paid / confirmed (mint) */
+  --status-success-bg: rgba(205, 236, 198, 0.12);
+  --status-success-border: rgba(205, 236, 198, 0.35);
+  --status-danger-text: #f87171;      /* rejected / suspended / destructive (red) */
+  --status-danger-bg: rgba(248, 113, 113, 0.12);
+  --status-danger-border: rgba(248, 113, 113, 0.35);
+  --status-warning-text: #fbbf24;     /* pending / under-review (amber) */
+  --status-warning-bg: rgba(251, 191, 36, 0.12);
+  --status-warning-border: rgba(251, 191, 36, 0.35);
+  --status-neutral-text: #9ca3af;     /* inactive / maintenance (gray) */
+  --status-neutral-bg: rgba(156, 163, 175, 0.12);
+  --status-neutral-border: rgba(156, 163, 175, 0.35);
+  --status-info-text: #93c5fd;        /* new / recurring (blue) */
+  --status-info-bg: rgba(147, 197, 253, 0.12);
+  --status-info-border: rgba(147, 197, 253, 0.35);
+  --status-caution-text: #fb923c;     /* suspended / paused — attention, reversible (orange) */
+  --status-caution-bg: rgba(251, 146, 60, 0.12);
+  --status-caution-border: rgba(251, 146, 60, 0.35);
+
+  /* ---------- Spacing (4px base) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 999px;
+
+  /* ---------- Typography (Cairo — Arabic-first, matches the app) ---------- */
+  --font-sans: 'Cairo', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 36px;
+  --text-5xl: 56px;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* ---------- Shadows ---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 25px 80px rgba(0, 0, 0, 0.4);
+
+  /* ---------- Ambient glow (luminous mint + forest depth — hero / CTA surfaces) ---------- */
+  --color-glow-primary: rgba(205, 236, 198, 0.16); /* mint halo / orb */
+  --color-glow-forest: rgba(47, 85, 68, 0.5);      /* deep-green orb */
+  --shadow-glow-sm: 0 8px 24px rgba(205, 236, 198, 0.14);
+  --shadow-glow: 0 18px 48px rgba(205, 236, 198, 0.22);
+
+  /* ---------- Transitions ---------- */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* ---------- Z-index ---------- */
+  --z-header: 100;
+  --z-sidebar: 200;
+  --z-dropdown: 1000;
+  --z-modal: 1100;
+  --z-popover: 1150; /* select/menu popovers — above modals so they never clip behind one */
+  --z-toast: 1200;
+
+  /* ---------- Breakpoints (documented; media queries use the literal px) ---------- */
+  --bp-xs: 480px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  /* ---------- Layout + modal widths ---------- */
+  --sidebar-width: 250px;
+  --header-height: 64px;
+  --container-max: 1200px;  /* centered content width (landing + future marketing) */
+  --modal-sm: 420px;
+  --modal-md: 560px;
+  --modal-lg: 800px;
+  --modal-xl: 1040px;
+}

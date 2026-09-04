@@ -1,0 +1,27 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  max-inline-size: 100%;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-primary-accent);
+}
+
+.orphan {
+  color: var(--status-warning-text);
+}
+
+.orphan .icon {
+  color: var(--status-warning-text);
+}
+
+.more {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}

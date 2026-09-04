@@ -1,0 +1,494 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  block-size: 240px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-md);
+}
+
+.heroImage {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.heroFallback {
+  display: grid;
+  place-items: center;
+  block-size: 100%;
+  background: var(--color-surface-3);
+  color: var(--color-text-subtle);
+  font-size: var(--text-4xl);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, var(--color-overlay));
+  pointer-events: none;
+}
+
+.plate {
+  position: absolute;
+  inset-block-end: var(--space-5);
+  inset-inline: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--gradient-glass);
+  border: 1px solid var(--color-glass-border-strong);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.kindIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  inline-size: var(--space-12);
+  block-size: var(--space-12);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+}
+
+.plateInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.plateName {
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plateLocation {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+  min-inline-size: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.plateLocationIcon {
+  flex-shrink: 0;
+  color: var(--color-primary-accent);
+}
+
+.plateLocationText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plateMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  margin-inline-start: auto;
+}
+
+/* ---------- Stat grid ---------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+/* ---------- Tab panels / overview ---------- */
+
+.tabPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/*
+ * Overview layout: a wide MAIN column with a narrower SIDE column.
+ *
+ * This was `1fr 1fr`, which read as confusing for a structural reason rather
+ * than a stylistic one — two equal columns give a short card (Details: a handful
+ * of label/value rows) the same visual weight as a tall one (Location, with its
+ * map), so the eye has no way to tell what the page is actually about, and the
+ * shorter card leaves a large gap beside its neighbour.
+ *
+ * 3:2 puts the substantive content (description, hours, courts) in the main
+ * column and the reference data (identity, location) alongside it, so each
+ * column reads top-to-bottom as one coherent story.
+ */
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+/* Cards that belong to the narrow reference column. */
+.overviewSide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-inline-size: 0;
+}
+
+.overviewMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-inline-size: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.description {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+  white-space: pre-line;
+}
+
+.muted {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--color-divider);
+  font-size: var(--text-sm);
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  color: var(--color-primary-accent);
+}
+
+.contactLabel {
+  color: var(--color-text-muted);
+}
+
+.contactValue {
+  margin-inline-start: auto;
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Interactive map inside the location card. */
+.mapView {
+  block-size: 220px;
+  margin-block-start: var(--space-2);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-glass-border);
+}
+
+/* Stands in for the map when the facility has no coordinates, so the card keeps
+   its shape instead of collapsing. */
+.mapMissing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  block-size: 220px;
+  margin-block-start: var(--space-2);
+  border: 1px dashed var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.value {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  text-align: end;
+}
+
+/* ---------- Courts tab ---------- */
+
+.courtsHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.courtsCount {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+.courtsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+/* ---------- Media tab ---------- */
+
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.photoLink {
+  display: block;
+  inline-size: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.photoLink:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.photo {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform var(--transition-fast);
+}
+
+.photoLink:hover .photo {
+  transform: scale(1.02);
+}
+
+.docsList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* ---------- Owner glass card ---------- */
+
+.ownerCard {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--gradient-glass);
+  border: 1px solid var(--color-glass-border-strong);
+  border-radius: var(--radius-xl);
+}
+
+.ownerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.ownerLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.ownerName {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.ownerButton {
+  margin-inline-start: auto;
+}
+
+/* The whole owner cell is a clickable link to the owner profile (super_admin). */
+.ownerLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  inline-size: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: start;
+  color: inherit;
+  border-radius: var(--radius-md);
+  transition: opacity var(--transition-fast);
+}
+
+.ownerLink:hover .ownerName {
+  text-decoration: underline;
+}
+
+.ownerLink:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.ownerChevron {
+  margin-inline-start: auto;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  color: var(--color-text-muted);
+}
+
+/* Chevron points to the reading-end; flip it under RTL. */
+:global([dir='rtl']) .ownerChevron {
+  transform: scaleX(-1);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    block-size: 160px;
+  }
+
+  .plate {
+    inset-block-end: var(--space-3);
+    inset-inline: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+  }
+
+  .plateName {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (max-width: 640px) {
+  .plateRating {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo {
+    transition: none;
+  }
+
+  .photoLink:hover .photo {
+    transform: none;
+  }
+}
+
+/* Sports chips on the description card, and the social links on the details
+   card. Both are label + wrapping row of small items. */
+.sports,
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: var(--space-4);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.socialLink {
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.socialLink:hover,
+.socialLink:focus-visible {
+  text-decoration: underline;
+}
+
+/* Gallery cell whose photo is missing or failed to load — keeps the 3:2 slot so
+   the grid does not reflow around a dead image. */
+.photoFallback {
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  aspect-ratio: 3 / 2;
+  background: var(--color-surface-3);
+  color: var(--color-text-subtle);
+}

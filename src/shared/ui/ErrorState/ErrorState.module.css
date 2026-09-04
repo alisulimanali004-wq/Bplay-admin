@@ -1,0 +1,12 @@
+.host {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--space-3);
+  min-block-size: 320px;
+  padding: var(--space-8);
+  text-align: center;
+}
+.icon { font-size: 40px; color: var(--status-danger-text); }
+.title { margin: 0; font-size: var(--text-lg); font-weight: var(--weight-semibold); color: var(--color-text); }
+.desc { margin: 0; font-size: var(--text-sm); color: var(--color-text-muted); max-inline-size: 42ch; }

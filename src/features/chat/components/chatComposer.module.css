@@ -1,0 +1,144 @@
+.composer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-6) var(--space-4);
+  border-block-start: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+/* The field and the send button share one rounded shell, so the composer reads
+   as a single control rather than a textarea with a button parked next to it. */
+.field {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  padding-inline-start: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  background: var(--color-bg);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.field:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-focus);
+}
+
+.fieldError {
+  border-color: var(--status-danger-border);
+}
+
+.input {
+  flex: 1;
+  min-inline-size: 0;
+  /* Auto-grow is driven from JS; this is the single-line starting height. */
+  block-size: auto;
+  max-block-size: 168px;
+  padding-block: var(--space-2);
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  resize: none;
+  overflow-y: auto;
+}
+
+.input::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.input:focus {
+  outline: none;
+}
+
+/* A circular mint send button — the one primary action in the pane. */
+.send {
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.send:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: scale(1.05);
+}
+
+.send:disabled {
+  background: var(--color-surface-3);
+  color: var(--color-text-disabled);
+  opacity: 1;
+}
+
+.footRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-inline: var(--space-4);
+  min-block-size: var(--space-4);
+}
+
+.hint {
+  flex: 1;
+  margin: 0;
+  font-size: 11px;
+  color: var(--color-text-subtle);
+}
+
+.error {
+  flex: 1;
+  margin: 0;
+  font-size: 11px;
+  color: var(--status-danger-text);
+}
+
+.counter {
+  font-size: 11px;
+  color: var(--color-text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.counterOver {
+  color: var(--status-danger-text);
+  font-weight: var(--weight-semibold);
+}
+
+/* A closed thread is read-only (there is no reopen action in V1 — CH5). */
+.closed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-6);
+  border-block-start: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+@media (max-width: 767px) {
+  .composer,
+  .closed {
+    padding-inline: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .send,
+  .field {
+    transition: none;
+  }
+
+  .send:hover:not(:disabled) {
+    transform: none;
+  }
+}

@@ -1,0 +1,29 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.hero,
+.two {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+@media (min-width: 768px) {
+  .kpis {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-columns: 8fr 4fr;
+  }
+  .two {
+    grid-template-columns: 1fr 1fr;
+  }
+}

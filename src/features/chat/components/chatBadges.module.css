@@ -1,0 +1,13 @@
+.ticks {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-sm);
+  line-height: 1;
+  /* On a mint outbound bubble the ticks sit on dark ink, softened so they read
+     as metadata rather than competing with the message body. */
+  color: color-mix(in srgb, var(--color-on-primary) 62%, transparent);
+}
+
+.ticksPending {
+  opacity: 0.75;
+}

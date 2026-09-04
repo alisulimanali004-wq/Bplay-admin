@@ -1,0 +1,95 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-6);
+}
+
+.empty {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+}
+
+.rowIcon {
+  display: inline-flex;
+  color: var(--color-primary-accent);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  flex: 1;
+  min-inline-size: 0;
+  flex-direction: column;
+}
+
+.nameLink {
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  text-align: start;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nameLink:hover {
+  color: var(--color-primary);
+}
+.nameLink:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-focus);
+  border-radius: var(--radius-sm);
+}
+
+/* Carve-outs shown under the city name, so a city grant is never overstated. */
+.exclusions {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}

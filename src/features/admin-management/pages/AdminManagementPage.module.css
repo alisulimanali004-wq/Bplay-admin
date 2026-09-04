@@ -1,0 +1,28 @@
+.regions {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+.muted {
+  color: var(--color-text-subtle);
+}
+
+/* Show-deleted (trash) toggle in the toolbar. */
+.deletedToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.deletedToggle:hover {
+  color: var(--color-text);
+}
+.deletedCheckbox {
+  inline-size: 18px;
+  block-size: 18px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}

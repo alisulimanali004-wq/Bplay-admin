@@ -1,0 +1,36 @@
+.center {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-16);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* A consistent minimum height so switching to a shorter tab doesn't collapse the
+   page and shift the scroll position up. */
+.tabPanel {
+  min-block-size: 55vh;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Two-column layout for facilities + documents. */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

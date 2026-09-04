@@ -1,0 +1,14 @@
+.map {
+  inline-size: 100%;
+  block-size: 300px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+/* The marker (a Leaflet divIcon whose SVG uses fill: currentColor). */
+.pin {
+  color: var(--color-secondary);
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45));
+}

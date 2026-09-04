@@ -1,0 +1,366 @@
+/* Shared layout vocabulary for the five Add-Facility wizard step forms. */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Label + control groups that are not a single Field (chip selects, image strip). */
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.groupLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-subtle);
+  text-align: start;
+}
+
+.hint {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: start;
+}
+
+.error {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--status-danger-text);
+  text-align: start;
+}
+
+/* Step 1 — club/pitch tiles */
+.tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+@media (max-width: 480px) {
+  .tiles {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Step 2 + 4 — selectable chips (sports / amenities) */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-full);
+  background: var(--color-glass);
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.chip:hover {
+  border-color: var(--color-glass-border-strong);
+  color: var(--color-text);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.chipSelected {
+  border-color: var(--color-primary);
+  background: var(--status-success-bg);
+  color: var(--color-primary);
+}
+
+/* Step 4 (club) — working-hours editor */
+.days {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.day {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-glass);
+}
+
+.dayName {
+  flex: 1;
+  min-inline-size: 88px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+}
+
+.dayTimes {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-inline-start: auto;
+}
+
+.timeInput {
+  inline-size: 116px;
+}
+
+/* Switch-style open/closed toggle (logical props so it mirrors in RTL). */
+.switch {
+  position: relative;
+  flex-shrink: 0;
+  inline-size: 40px;
+  block-size: 22px;
+  padding: 0;
+  border: 1px solid var(--color-glass-border-strong);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-3);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.switchOn {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.knob {
+  position: absolute;
+  inset-block-start: 2px;
+  inset-inline-start: 2px;
+  inline-size: 16px;
+  block-size: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-muted);
+  transition:
+    inset-inline-start var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.switchOn .knob {
+  inset-inline-start: calc(100% - 18px);
+  background: var(--color-on-primary);
+}
+
+/* Step 5 — image URL adder + thumbnail strip */
+.addRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.addRow > :first-child {
+  flex: 1;
+  min-inline-size: 200px;
+}
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-3);
+}
+
+.thumb {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+}
+
+.thumbImg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.thumbRemove {
+  position: absolute;
+  inset-block-start: var(--space-1);
+  inset-inline-end: var(--space-1);
+  background: var(--color-overlay);
+  color: var(--color-text);
+}
+
+.thumbRemove:hover {
+  color: var(--status-danger-text);
+}
+
+/* Step 3 — map picker frame */
+.mapWrap {
+  block-size: 340px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-glass-border);
+}
+
+@media (max-width: 640px) {
+  .mapWrap {
+    block-size: 280px;
+  }
+}
+
+/* Courts step (club) — repeatable court editor cards */
+.courts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.courtCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-glass);
+}
+
+.courtHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.courtIndex {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.courtGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-3);
+}
+
+.courtToggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.courtToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: var(--text-sm);
+}
+
+.courtToggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.courtToggleLabel {
+  font-weight: var(--weight-medium);
+}
+
+.addCourt {
+  align-self: flex-start;
+}
+
+/* Footer shared by every step (Back at start, Next/Create at end). */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-block-start: var(--space-2);
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--color-divider);
+}
+
+.footerBack {
+  margin-inline-end: auto;
+}
+
+/* Per-document type picker, listed under the documents uploader. The uploader
+   shows the files; this row is where each one is classified for the API. */
+.docTypeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-block-start: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+.docTypeRow {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 14rem);
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.docTypeName {
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 40rem) {
+  .docTypeRow {
+    grid-template-columns: 1fr;
+  }
+}

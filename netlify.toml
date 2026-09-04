@@ -1,0 +1,26 @@
+# Netlify config for the super-admin dashboard, wired to the deployed backend.
+#
+# This replaced a mock-data demo build. Note that netlify.toml overrides a
+# site's dashboard settings, so the values below win over anything configured
+# in the Netlify UI — change them here, not there.
+#
+# `npm run build:demo` still exists for a backend-free build; it just isn't what
+# this site deploys any more.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Real data, not the in-memory mocks.
+  VITE_USE_MOCKS = "false"
+  # The deployed API, including the /api/v1 prefix the client expects.
+  # Must match the backend's own APP_URL host, or uploaded media 404s.
+  VITE_API_BASE_URL = "https://bplay-backend1-production.up.railway.app/api/v1"
+  NODE_VERSION = "22"
+
+# SPA fallback: every path serves index.html so refresh & deep links work.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

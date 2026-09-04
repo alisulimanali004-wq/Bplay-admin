@@ -1,0 +1,19 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  inline-size: 100%;
+}
+.custom {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.sep {
+  color: var(--color-text-subtle);
+  flex-shrink: 0;
+}
+/* Date inputs render their native picker glyph — keep it visible on the dark surface. */
+.custom :global(input[type='date']) {
+  color-scheme: dark;
+}

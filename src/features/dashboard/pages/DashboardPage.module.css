@@ -1,0 +1,24 @@
+/* Cancel the shell's content padding so the command bar spans the full width
+   and can stick flush to the top; the body re-applies its own padding. */
+.page {
+  margin: calc(-1 * var(--space-4));
+}
+@media (min-width: 1024px) {
+  .page {
+    margin: calc(-1 * var(--space-6));
+  }
+}
+
+.body {
+  max-inline-size: 1440px;
+  margin-inline: auto;
+  padding: var(--space-8) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+@media (min-width: 768px) {
+  .body {
+    padding-inline: var(--space-6);
+  }
+}

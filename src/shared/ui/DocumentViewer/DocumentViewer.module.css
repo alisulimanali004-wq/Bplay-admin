@@ -1,0 +1,68 @@
+.viewer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+.open {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.open:hover {
+  text-decoration: underline;
+}
+.open:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  block-size: min(72vh, 680px);
+  padding: var(--space-4);
+  overflow: hidden;
+  background: var(--gradient-stage), var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+}
+
+.image {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-glass-border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.frame {
+  inline-size: 100%;
+  block-size: 100%;
+  border: none;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-2);
+}
+
+.empty {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.note {
+  margin: 0;
+  text-align: center;
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+}

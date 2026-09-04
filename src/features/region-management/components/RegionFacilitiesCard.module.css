@@ -1,0 +1,108 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.thumb {
+  flex-shrink: 0;
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.thumbFallback {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-3);
+  color: var(--color-text-subtle);
+  font-size: var(--text-base);
+}
+
+.name {
+  overflow: hidden;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kindGlyph {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+}
+
+/* Owner cell opens the owner profile — a link-styled button inside the row. */
+.ownerLink {
+  max-inline-size: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: var(--text-sm);
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+.ownerLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.ownerLink:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Row count beside the section title, so a filtered view states its own scope. */
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  margin-inline-start: var(--space-2);
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-full, 999px);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0;
+}
+
+.muted {
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,9 @@
+.flag {
+  display: inline-block;
+  inline-size: 1.375em;
+  block-size: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
+  vertical-align: middle;
+}

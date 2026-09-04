@@ -1,0 +1,23 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  /* Controls bottom-align so labeled filters (caption above) and unlabeled ones
+     line up on the same baseline. */
+  align-items: end;
+  gap: var(--space-3);
+}
+/* Search (first child) grows; filters keep a compact fixed width beside it. */
+.toolbar > :first-child {
+  flex: 1 1 260px;
+}
+.toolbar > :not(:first-child) {
+  flex: 0 0 auto;
+  inline-size: 200px;
+}
+/* Trailing slot (e.g. a Clear-filters strip): its own full-width row under the
+   filters, so placement stays deterministic no matter how many filters wrap above.
+   Declared after the rule above so it wins at equal specificity. */
+.toolbar > .end {
+  flex: 1 0 100%;
+  inline-size: 100%;
+}

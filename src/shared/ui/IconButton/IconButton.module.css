@@ -1,0 +1,37 @@
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-subtle);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    filter var(--transition-fast), transform var(--transition-fast);
+}
+.iconBtn:hover:not(:disabled) { background: var(--color-surface-2); color: var(--color-text); }
+.iconBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+.iconBtn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+.sm { inline-size: 32px; block-size: 32px; font-size: var(--text-base); }
+.md { inline-size: 40px; block-size: 40px; font-size: var(--text-lg); }
+.lg { inline-size: 48px; block-size: 48px; font-size: var(--text-xl); }
+
+.primary { background: var(--color-primary); color: var(--color-on-primary); }
+/* Keep the mint fill on hover (deepen it) instead of flipping to a dark surface. */
+.primary:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  filter: brightness(0.95);
+  transform: scale(1.06);
+}
+.secondary { background: var(--color-surface-2); color: var(--color-text); border-color: var(--color-border-strong); }
+.ghost { background: transparent; }
+.danger { color: var(--color-danger); }
+.danger:hover:not(:disabled) { background: var(--status-danger-bg); color: var(--status-danger-text); }
+.caution { color: var(--status-caution-text); }
+.caution:hover:not(:disabled) { background: var(--status-caution-bg); color: var(--status-caution-text); }
+
+/* Tactile press for every icon button (kept last so it wins over variant hovers). */
+.iconBtn:active:not(:disabled) { transform: scale(0.92); }

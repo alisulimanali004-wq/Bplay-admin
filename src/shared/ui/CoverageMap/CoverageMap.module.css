@@ -1,0 +1,118 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  inline-size: 100%;
+}
+
+/* ---- The map canvas ---- */
+.map {
+  inline-size: 100%;
+  block-size: 340px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-strong);
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+@media (max-width: 640px) {
+  .map {
+    block-size: 260px;
+  }
+}
+
+/* ---- Legend row under the map ---- */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.legendDot {
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+.legendEmpty {
+  color: var(--color-text-subtle);
+}
+
+/* ---- Center pin (mint SVG divIcon) ---- */
+.pin {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.45));
+}
+
+/* ---- Coverage radius circle (amber, matches MapPicker) ---- */
+.circle {
+  stroke: var(--status-warning-text);
+  stroke-width: 3;
+  fill: var(--status-warning-text);
+  fill-opacity: 0.16;
+}
+
+/* ---- Pins colored-by-tone via tokens (no raw hex in JS) ---- */
+/* As Leaflet SVG vectors these carry stroke/fill; as legend dots (divs) the
+   background renders the same color. */
+.pinActive {
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  fill: var(--color-primary);
+  fill-opacity: 0.9;
+  background: var(--color-primary);
+}
+.pinPending {
+  stroke: var(--status-warning-text);
+  stroke-width: 2;
+  fill: var(--status-warning-text);
+  fill-opacity: 0.9;
+  background: var(--status-warning-text);
+}
+.pinDanger {
+  stroke: var(--color-danger);
+  stroke-width: 2;
+  fill: var(--color-danger);
+  fill-opacity: 0.9;
+  background: var(--color-danger);
+}
+.pinNeutral {
+  stroke: var(--color-text-subtle);
+  stroke-width: 2;
+  fill: var(--color-text-subtle);
+  fill-opacity: 0.9;
+  background: var(--color-text-subtle);
+}
+
+/* ---- Leaflet resets so only our chrome shows ---- */
+:global(.leaflet-div-icon) {
+  background: transparent;
+  border: none;
+}
+:global(.leaflet-control-attribution) {
+  background: rgba(10, 27, 19, 0.72);
+  color: var(--color-text-subtle);
+}
+:global(.leaflet-control-attribution a) {
+  color: var(--color-primary-accent);
+}
+:global(.leaflet-popup-content-wrapper) {
+  background: var(--color-dialog);
+  color: var(--color-text);
+  border-radius: var(--radius-lg);
+}
+:global(.leaflet-popup-tip) {
+  background: var(--color-dialog);
+}
+:global(.leaflet-popup-content) {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+}

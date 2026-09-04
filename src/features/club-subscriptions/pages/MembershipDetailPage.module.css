@@ -1,0 +1,145 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.center {
+  display: grid;
+  place-items: center;
+  padding-block: var(--space-16);
+}
+
+.linkRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: calc(-1 * var(--space-3));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* The right column: Dates + Payments stacked beside the tall plan card, so the
+   column fills instead of leaving a gap under the short Dates card. */
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-inline-size: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.cardTitle {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.usageCount {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+}
+
+/* Club identity row (link to the facility profile) */
+.clubRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  min-inline-size: 0;
+  text-align: start;
+}
+
+.clubName {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary-accent);
+}
+
+.clubRow:hover .clubName {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Definition-list rows */
+.rows {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.label {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.value {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  text-align: end;
+  margin: 0;
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Plan features */
+.featuresBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+
+.featureIcon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
